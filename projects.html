@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Muhammad Irfan | ML, NLP & Data Science Projects</title>
+  <meta name="description" content="Muhammad Irfan's data science projects: Stock Volatility Forecasting API, Text Sentiment Analysis, Credit Card Fraud Detection using ML and FastAPI." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muhammadirfan.dev/projects.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Filter bar */
+    .filter-bar {
+      display:flex; gap:0.6rem; flex-wrap:wrap; margin:2.5rem 0;
+    }
+    .filter-btn {
+      padding:0.45rem 1.1rem; border-radius:999px;
+      font-size:0.82rem; font-weight:600;
+      background:var(--surface); border:1px solid var(--border);
+      color:var(--text-secondary); transition:all var(--transition); cursor:pointer;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background:var(--brand-primary); color:#fff; border-color:var(--brand-primary);
+    }
+
+    /* Project cards — full detail */
+    .projects-list { display:flex; flex-direction:column; gap:2.5rem; }
+    .proj-full {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-xl); overflow:hidden;
+      transition:all var(--transition);
+    }
+    .proj-full:hover { box-shadow:var(--shadow-lg); border-color:var(--border-strong); }
+
+    .proj-full-inner { display:grid; grid-template-columns:1fr 2fr; }
+    .proj-visual {
+      padding:2.5rem; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; gap:1rem;
+      position:relative; overflow:hidden; min-height:280px;
+    }
+    .pv-1 { background:linear-gradient(135deg, #0a7c6e14 0%, #1dc8b020 100%); }
+    .pv-2 { background:linear-gradient(135deg, #e8a02014 0%, #f4a42020 100%); }
+    .pv-3 { background:linear-gradient(135deg, #1dc8b014 0%, #0a7c6e20 100%); }
+    .proj-big-icon { font-size:4.5rem; }
+    .proj-num-bg {
+      font-family:var(--font-display); font-size:8rem; font-weight:800;
+      position:absolute; bottom:-1.5rem; right:-0.5rem; line-height:1;
+      opacity:0.07; color:var(--brand-primary); user-select:none;
+    }
+    .proj-full-content { padding:2.5rem; }
+    .proj-full-title {
+      font-family:var(--font-display); font-size:1.55rem; font-weight:700;
+      margin-bottom:0.6rem; color:var(--text-primary);
+    }
+    .proj-full-desc {
+      font-size:0.92rem; color:var(--text-secondary);
+      line-height:1.8; margin-bottom:1.5rem;
+    }
+    .proj-details-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+    .proj-detail-item {
+      background:var(--surface-2); border-radius:var(--radius-sm); padding:0.85rem 1rem;
+    }
+    .proj-detail-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:700; margin-bottom:0.25rem; }
+    .proj-detail-value { font-size:0.85rem; font-weight:600; color:var(--text-primary); }
+    .proj-full-tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-bottom:1.5rem; }
+    .proj-full-actions { display:flex; gap:0.75rem; flex-wrap:wrap; }
+
+    /* Metrics badges */
+    .proj-metrics { display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+    .metric-badge {
+      display:flex; align-items:center; gap:0.4rem;
+      background:rgba(10,124,110,0.07); border:1px solid rgba(10,124,110,0.15);
+      border-radius:8px; padding:0.45rem 0.85rem;
+      font-size:0.78rem; font-weight:600; color:var(--brand-primary);
+    }
+    .metric-icon { font-size:0.95rem; }
+
+    @media(max-width:900px){
+      .proj-full-inner { grid-template-columns:1fr; }
+      .proj-visual { min-height:160px; }
+      .proj-details-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">M.<span>Irfan</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="about.html"      class="nav-link">About</a></li>
+          <li><a href="skills.html"     class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html"   class="nav-link active" aria-current="page">Projects</a></li>
+          <li><a href="contact.html"    class="nav-cta btn btn-primary btn-sm">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-cta btn btn-primary">Hire Me</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-label="Page header">
+      <div class="page-hero-inner">
+        <div class="eyebrow anim-fade-up">Portfolio</div>
+        <h1 class="anim-fade-up d1">Featured Projects</h1>
+        <p class="anim-fade-up d2">From financial forecasting to fraud detection — real-world systems built with production-quality code, proper ML pipelines, and deployment in mind.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="eyebrow reveal">All Work</div>
+        <h2 id="projects-heading" class="reveal reveal-delay-1">Project Showcase</h2>
+
+        <div class="projects-list">
+
+          <!-- PROJECT 1 -->
+          <article class="proj-full reveal" aria-labelledby="p1-title">
+            <div class="proj-full-inner">
+              <div class="proj-visual pv-1">
+                <div class="proj-big-icon" aria-hidden="true">📈</div>
+                <div class="proj-num-bg" aria-hidden="true">01</div>
+              </div>
+              <div class="proj-full-content">
+                <div class="eyebrow">Financial ML · API · DevOps</div>
+                <h3 id="p1-title" class="proj-full-title">Stock Volatility Forecasting API</h3>
+                <p class="proj-full-desc">
+                  A production-grade financial forecasting API built with FastAPI and the GARCH(1,1) statistical model. Integrates with Alpha Vantage to fetch live stock market data and generates volatility predictions with full statistical diagnostics — including AIC/BIC model selection and ACF analysis. The entire system is containerized with Docker for reproducible deployment.
+                </p>
+                <div class="proj-metrics" aria-label="Project highlights">
+                  <div class="metric-badge"><span class="metric-icon">🐳</span> Docker Deployed</div>
+                  <div class="metric-badge"><span class="metric-icon">📡</span> Live API Endpoints</div>
+                  <div class="metric-badge"><span class="metric-icon">📊</span> AIC/BIC Diagnostics</div>
+                </div>
+                <div class="proj-details-grid">
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Category</div>
+                    <div class="proj-detail-value">Financial ML · API</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Status</div>
+                    <div class="proj-detail-value">✅ Completed</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Data Source</div>
+                    <div class="proj-detail-value">Alpha Vantage API</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Deployment</div>
+                    <div class="proj-detail-value">Docker Container</div>
+                  </div>
+                </div>
+                <div class="proj-full-tags" aria-label="Technologies">
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">GARCH(1,1)</span>
+                  <span class="tag">Docker</span>
+                  <span class="tag">SQL</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Alpha Vantage</span>
+                  <span class="tag">Statistical Modeling</span>
+                </div>
+                <div class="proj-full-actions">
+                  <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View on GitHub</a>
+                  <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="proj-full reveal" aria-labelledby="p2-title">
+            <div class="proj-full-inner">
+              <div class="proj-visual pv-2">
+                <div class="proj-big-icon" aria-hidden="true">🎬</div>
+                <div class="proj-num-bg" aria-hidden="true">02</div>
+              </div>
+              <div class="proj-full-content">
+                <div class="eyebrow">NLP · Sentiment Analysis · Classification</div>
+                <h3 id="p2-title" class="proj-full-title">Text Sentiment Analysis — IMDB</h3>
+                <p class="proj-full-desc">
+                  An NLP-powered binary sentiment classification system trained on the IMDB Movie Review dataset — one of the most widely used NLP benchmarks. The pipeline handles text preprocessing (tokenization, stopword removal, TF-IDF vectorization) and applies classical machine learning classifiers to accurately distinguish positive from negative reviews. Clean, reusable pipeline with evaluation metrics.
+                </p>
+                <div class="proj-metrics" aria-label="Project highlights">
+                  <div class="metric-badge"><span class="metric-icon">🗂️</span> IMDB Dataset</div>
+                  <div class="metric-badge"><span class="metric-icon">🔤</span> TF-IDF Pipeline</div>
+                  <div class="metric-badge"><span class="metric-icon">✅</span> High Accuracy</div>
+                </div>
+                <div class="proj-details-grid">
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Category</div>
+                    <div class="proj-detail-value">NLP · Text Classification</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Dataset</div>
+                    <div class="proj-detail-value">IMDB Movie Reviews</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Task Type</div>
+                    <div class="proj-detail-value">Binary Classification</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Status</div>
+                    <div class="proj-detail-value">✅ Completed</div>
+                  </div>
+                </div>
+                <div class="proj-full-tags" aria-label="Technologies">
+                  <span class="tag">NLP</span>
+                  <span class="tag">Scikit-learn</span>
+                  <span class="tag">TF-IDF</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">NLTK</span>
+                  <span class="tag">Text Preprocessing</span>
+                </div>
+                <div class="proj-full-actions">
+                  <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View on GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="proj-full reveal" aria-labelledby="p3-title">
+            <div class="proj-full-inner">
+              <div class="proj-visual pv-3">
+                <div class="proj-big-icon" aria-hidden="true">🛡️</div>
+                <div class="proj-num-bg" aria-hidden="true">03</div>
+              </div>
+              <div class="proj-full-content">
+                <div class="eyebrow">Fraud Detection · Imbalanced Data · Classification</div>
+                <h3 id="p3-title" class="proj-full-title">Credit Card Fraud Detection System</h3>
+                <p class="proj-full-desc">
+                  A machine learning system designed to detect fraudulent credit card transactions — a high-stakes real-world problem where false negatives have serious financial consequences. The system uses a Random Forest ensemble classifier and handles the heavily imbalanced nature of fraud datasets (where genuine fraud makes up less than 1% of transactions) through SMOTE oversampling. Evaluated using precision, recall, F1, and ROC-AUC metrics.
+                </p>
+                <div class="proj-metrics" aria-label="Project highlights">
+                  <div class="metric-badge"><span class="metric-icon">🌲</span> Random Forest</div>
+                  <div class="metric-badge"><span class="metric-icon">⚖️</span> SMOTE Balancing</div>
+                  <div class="metric-badge"><span class="metric-icon">📉</span> &lt;1% Fraud Rate</div>
+                </div>
+                <div class="proj-details-grid">
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Category</div>
+                    <div class="proj-detail-value">Fraud Detection · FinTech</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Model</div>
+                    <div class="proj-detail-value">Random Forest Classifier</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Challenge</div>
+                    <div class="proj-detail-value">Severe Class Imbalance</div>
+                  </div>
+                  <div class="proj-detail-item">
+                    <div class="proj-detail-label">Status</div>
+                    <div class="proj-detail-value">✅ Completed</div>
+                  </div>
+                </div>
+                <div class="proj-full-tags" aria-label="Technologies">
+                  <span class="tag">Random Forest</span>
+                  <span class="tag">SMOTE</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">Pandas</span>
+                  <span class="tag">Scikit-learn</span>
+                  <span class="tag">ROC-AUC</span>
+                  <span class="tag">Imbalanced-learn</span>
+                </div>
+                <div class="proj-full-actions">
+                  <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View on GitHub</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">M.<span>Irfan</span></div>
+          <p class="footer-desc">Data Scientist & AI Engineer based in Faisalabad, Pakistan.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="projects.html" class="footer-link">Projects</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:muhammadirf655@gmail.com" class="footer-link">muhammadirf655@gmail.com</a></li>
+            <li><a href="tel:+923266890886" class="footer-link">+92 326 6890886</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Irfan. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://github.com" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener">gh</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

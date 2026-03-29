@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Muhammad Irfan | Data Science & IT Internships</title>
+  <meta name="description" content="Muhammad Irfan's professional experience: Data Science intern at SkillifyZone, IT intern at MAHEEN Textile, Networking intern at Punjab Police." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muhammadirfan.dev/experience.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Timeline */
+    .timeline-section { padding: 5rem 0; }
+    .timeline { position:relative; margin-top:3rem; }
+    .timeline::before {
+      content:''; position:absolute; left:28px; top:0; bottom:0;
+      width:2px;
+      background:linear-gradient(180deg, var(--brand-primary), var(--brand-secondary), var(--brand-accent));
+      border-radius:2px;
+    }
+    .tl-item {
+      padding-left:72px; margin-bottom:3rem; position:relative;
+    }
+    .tl-dot {
+      position:absolute; left:18px; top:1.6rem;
+      width:22px; height:22px; border-radius:50%;
+      background:linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+      border:3px solid var(--bg);
+      box-shadow:0 0 0 3px rgba(10,124,110,0.2), 0 0 20px rgba(10,124,110,0.3);
+    }
+    .tl-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:2rem;
+      transition:all var(--transition); position:relative; overflow:hidden;
+    }
+    .tl-card::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+      border-radius:var(--radius-lg) 0 0 var(--radius-lg);
+    }
+    .tl-item:nth-child(1) .tl-card::before { background:var(--brand-primary); }
+    .tl-item:nth-child(2) .tl-card::before { background:var(--brand-secondary); }
+    .tl-item:nth-child(3) .tl-card::before { background:var(--brand-accent); }
+    .tl-card:hover { transform:translateX(5px); box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+
+    .tl-header { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:0.75rem; margin-bottom:0.5rem; }
+    .tl-role { font-family:var(--font-display); font-size:1.25rem; font-weight:700; }
+    .tl-period {
+      font-size:0.78rem; font-weight:700; letter-spacing:0.05em;
+      color:var(--brand-primary); background:rgba(10,124,110,0.08);
+      border:1px solid rgba(10,124,110,0.2); padding:0.3rem 0.85rem;
+      border-radius:999px; white-space:nowrap;
+    }
+    .tl-company {
+      font-size:0.92rem; font-weight:600; color:var(--brand-secondary);
+      margin-bottom:1.2rem; display:flex; align-items:center; gap:0.5rem;
+    }
+    .tl-location { font-size:0.78rem; color:var(--text-muted); font-weight:400; }
+    .tl-bullets { display:flex; flex-direction:column; gap:0.6rem; }
+    .tl-bullet {
+      display:flex; gap:0.75rem; align-items:flex-start;
+      font-size:0.88rem; color:var(--text-secondary); line-height:1.65;
+    }
+    .tl-bullet-dot {
+      width:6px; height:6px; border-radius:50%;
+      background:var(--brand-primary); flex-shrink:0; margin-top:0.55rem;
+    }
+    .tl-item:nth-child(2) .tl-bullet-dot { background:var(--brand-secondary); }
+    .tl-item:nth-child(3) .tl-bullet-dot { background:var(--brand-accent); }
+    .tl-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid var(--border); }
+
+    /* Education section */
+    .edu-section { background:var(--surface-2); padding:5rem 0; }
+    .edu-timeline { margin-top:2.5rem; display:flex; flex-direction:column; gap:1.5rem; }
+    .edu-item {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem;
+      display:flex; gap:1.5rem; align-items:flex-start; position:relative; overflow:hidden;
+      transition:all var(--transition);
+    }
+    .edu-item::after {
+      content:''; position:absolute; top:0; right:0; bottom:0; width:3px;
+      border-radius:0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    .edu-item:nth-child(1)::after { background:linear-gradient(180deg, var(--brand-primary), var(--brand-secondary)); }
+    .edu-item:nth-child(2)::after { background:linear-gradient(180deg, var(--brand-secondary), var(--brand-accent)); }
+    .edu-item:nth-child(3)::after { background:linear-gradient(180deg, var(--brand-accent), var(--brand-primary)); }
+    .edu-item:hover { transform:translateX(-4px); box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+    .edu-icon-lg { font-size:2.5rem; flex-shrink:0; }
+    .edu-deg { font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:0.25rem; }
+    .edu-school-name { color:var(--brand-primary); font-weight:600; font-size:0.9rem; margin-bottom:0.25rem; }
+    .edu-dates { color:var(--text-muted); font-size:0.8rem; margin-bottom:0.75rem; }
+
+    @media(max-width:768px){
+      .timeline::before { left:16px; }
+      .tl-item { padding-left:48px; }
+      .tl-dot { left:6px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">M.<span>Irfan</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="about.html"      class="nav-link">About</a></li>
+          <li><a href="skills.html"     class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link active" aria-current="page">Experience</a></li>
+          <li><a href="projects.html"   class="nav-link">Projects</a></li>
+          <li><a href="contact.html"    class="nav-cta btn btn-primary btn-sm">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-cta btn btn-primary">Hire Me</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-label="Page header">
+      <div class="page-hero-inner">
+        <div class="eyebrow anim-fade-up">Career Path</div>
+        <h1 class="anim-fade-up d1">Work Experience</h1>
+        <p class="anim-fade-up d2">Three internships across Data Science, IT networking, and government telecommunications — each one shaping a well-rounded technical profile.</p>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section" aria-labelledby="exp-title">
+      <div class="container">
+        <div class="eyebrow reveal">Internship History</div>
+        <h2 id="exp-title" class="reveal reveal-delay-1">Professional Timeline</h2>
+        <div class="timeline">
+
+          <div class="tl-item reveal">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <article class="tl-card" aria-labelledby="exp1-title">
+              <div class="tl-header">
+                <h3 id="exp1-title" class="tl-role">Data Science & Analytics Intern</h3>
+                <span class="tl-period">May 2025 – June 2025</span>
+              </div>
+              <div class="tl-company">
+                SkillifyZone · Developers Hub
+                <span class="tl-location">📍 Remote</span>
+              </div>
+              <div class="tl-bullets">
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Assisted in data cleaning, preprocessing, and exploratory data analysis (EDA) using Python, Pandas, NumPy, Matplotlib, and Seaborn to extract meaningful business insights from raw datasets.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Worked on real-world datasets to build predictive analytics models and interactive dashboards, applying machine learning techniques to identify patterns, trends, and data-driven decision outcomes.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Delivered actionable insights through well-structured reports and visualizations that supported business decision-making processes.</span>
+                </div>
+              </div>
+              <div class="tl-tags" aria-label="Technologies used">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">EDA</span>
+                <span class="tag">Machine Learning</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-1">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <article class="tl-card" aria-labelledby="exp2-title">
+              <div class="tl-header">
+                <h3 id="exp2-title" class="tl-role">IT Support & Networking Intern</h3>
+                <span class="tl-period">Aug 2025 – Sep 2025</span>
+              </div>
+              <div class="tl-company">
+                MAHEEN Textile Mills (PVT) LTD
+                <span class="tl-location">📍 Khurrianwala, Faisalabad</span>
+              </div>
+              <div class="tl-bullets">
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Gained hands-on experience in IT networking, including installation, configuration, and troubleshooting of network devices across a large-scale textile manufacturing facility.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Supported day-to-day IT operations by resolving hardware and software issues, managing user accounts, and assisting in system maintenance and upgrades.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Contributed to maintaining secure and efficient network performance through proactive monitoring, technical documentation, and implementation of basic security practices.</span>
+                </div>
+              </div>
+              <div class="tl-tags" aria-label="Technologies used">
+                <span class="tag tag-gold">Networking</span>
+                <span class="tag tag-gold">IT Support</span>
+                <span class="tag tag-gold">Network Config</span>
+                <span class="tag tag-gold">Security</span>
+                <span class="tag tag-gold">Documentation</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-2">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <article class="tl-card" aria-labelledby="exp3-title">
+              <div class="tl-header">
+                <h3 id="exp3-title" class="tl-role">Networking & Leadership Intern</h3>
+                <span class="tl-period">November 2024</span>
+              </div>
+              <div class="tl-company">
+                Punjab Police
+                <span class="tl-location">📍 Faisalabad, Pakistan</span>
+              </div>
+              <div class="tl-bullets">
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Performed hands-on work in networking and telecommunications within a government law enforcement agency, gaining exposure to large-scale institutional IT infrastructure.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Solved real-time technology challenges in a high-stakes environment, collaborating with cross-functional teams to ensure network continuity.</span>
+                </div>
+                <div class="tl-bullet">
+                  <div class="tl-bullet-dot" aria-hidden="true"></div>
+                  <span>Strengthened agile thinking, professional communication, and leadership capabilities in a disciplined institutional context.</span>
+                </div>
+              </div>
+              <div class="tl-tags" aria-label="Skills demonstrated">
+                <span class="tag">Telecommunications</span>
+                <span class="tag">Leadership</span>
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Teamwork</span>
+                <span class="tag">Agile Thinking</span>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="edu-section" aria-labelledby="edu-title">
+      <div class="container">
+        <div class="eyebrow reveal">Academic Background</div>
+        <h2 id="edu-title" class="reveal reveal-delay-1">Education & Certifications</h2>
+        <div class="edu-timeline">
+          <div class="edu-item reveal">
+            <div class="edu-icon-lg">🎓</div>
+            <div>
+              <div class="edu-deg">Bachelor of Computer Science in Information Technology</div>
+              <div class="edu-school-name">University of Agriculture Faisalabad (UAF)</div>
+              <div class="edu-dates">Sep 2022 – June 2026 · Faisalabad, Pakistan</div>
+              <span class="tag tag-gold">⭐ Top 5% of Batch</span>
+            </div>
+          </div>
+          <div class="edu-item reveal reveal-delay-1">
+            <div class="edu-icon-lg">🌍</div>
+            <div>
+              <div class="edu-deg">Applied Data Science Lab</div>
+              <div class="edu-school-name">WorldQuant University</div>
+              <div class="edu-dates">December 2025</div>
+              <span class="tag">Certification</span>
+            </div>
+          </div>
+          <div class="edu-item reveal reveal-delay-2">
+            <div class="edu-icon-lg">📊</div>
+            <div>
+              <div class="edu-deg">Power BI Certification</div>
+              <div class="edu-school-name">Microsoft</div>
+              <div class="edu-dates">2025</div>
+              <span class="tag">Certification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">M.<span>Irfan</span></div>
+          <p class="footer-desc">Data Scientist & AI Engineer based in Faisalabad, Pakistan.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="projects.html" class="footer-link">Projects</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:muhammadirf655@gmail.com" class="footer-link">muhammadirf655@gmail.com</a></li>
+            <li><a href="tel:+923266890886" class="footer-link">+92 326 6890886</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Irfan. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://github.com" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener">gh</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

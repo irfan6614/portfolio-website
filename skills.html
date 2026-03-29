@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills — Muhammad Irfan | Python, ML, SQL, MongoDB, PostgreSQL</title>
+  <meta name="description" content="Muhammad Irfan's technical skills: Python, Machine Learning, Deep Learning, NLP, TensorFlow, FastAPI, PostgreSQL, MongoDB, Docker, Power BI, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muhammadirfan.dev/skills.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Skill categories */
+    .skills-layout { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; margin-top:3rem; }
+    .skill-cat-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:var(--radius-lg); padding:2rem;
+      transition:all var(--transition); position:relative; overflow:hidden;
+    }
+    .skill-cat-card:hover { box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+    .skill-cat-card::after {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .scc-ai::after     { background:linear-gradient(90deg, var(--brand-primary), var(--brand-accent)); }
+    .scc-dev::after    { background:linear-gradient(90deg, var(--brand-secondary), #f4a420); }
+    .scc-db::after     { background:linear-gradient(90deg, var(--brand-accent), var(--brand-primary)); }
+    .scc-tools::after  { background:linear-gradient(90deg, #8b5cf6, var(--brand-accent)); }
+    .scc-net::after    { background:linear-gradient(90deg, var(--brand-secondary), var(--brand-primary)); }
+    .scc-soft::after   { background:linear-gradient(90deg, #ec4899, #8b5cf6); }
+
+    .cat-header { display:flex; align-items:center; gap:1rem; margin-bottom:1.8rem; }
+    .cat-icon-wrap {
+      width:48px; height:48px; border-radius:12px; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+    }
+    .scc-ai .cat-icon-wrap    { background:rgba(10,124,110,0.1); }
+    .scc-dev .cat-icon-wrap   { background:rgba(232,160,32,0.1); }
+    .scc-db .cat-icon-wrap    { background:rgba(29,200,176,0.1); }
+    .scc-tools .cat-icon-wrap { background:rgba(139,92,246,0.1); }
+    .scc-net .cat-icon-wrap   { background:rgba(232,160,32,0.1); }
+    .scc-soft .cat-icon-wrap  { background:rgba(236,72,153,0.1); }
+
+    .cat-title { font-family:var(--font-display); font-size:1.1rem; font-weight:700; }
+    .cat-count { font-size:0.75rem; color:var(--text-muted); margin-top:0.15rem; }
+
+    /* Skill bars */
+    .skill-bars { display:flex; flex-direction:column; gap:1.1rem; }
+    .skill-row {}
+    .skill-row-top {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:0.45rem;
+    }
+    .skill-name { font-size:0.85rem; font-weight:600; color:var(--text-primary); }
+    .skill-pct  { font-size:0.75rem; font-weight:700; color:var(--brand-primary); }
+    .skill-track {
+      height:6px; background:rgba(10,124,110,0.1); border-radius:999px; overflow:hidden;
+    }
+    .skill-fill {
+      height:100%; border-radius:999px; width:0;
+      transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .scc-ai .skill-fill    { background:linear-gradient(90deg, var(--brand-primary), var(--brand-accent)); }
+    .scc-dev .skill-fill   { background:linear-gradient(90deg, var(--brand-secondary), #f4a420); }
+    .scc-db .skill-fill    { background:linear-gradient(90deg, var(--brand-accent), var(--brand-primary)); }
+    .scc-tools .skill-fill { background:linear-gradient(90deg, #8b5cf6, var(--brand-accent)); }
+    .scc-net .skill-fill   { background:linear-gradient(90deg, var(--brand-secondary), var(--brand-primary)); }
+    .scc-soft .skill-fill  { background:linear-gradient(90deg, #ec4899, #8b5cf6); }
+
+    /* All skills cloud */
+    .all-skills-section { background:var(--surface-2); padding:5rem 0; }
+    .big-tag-cloud { display:flex; flex-wrap:wrap; gap:0.8rem; margin-top:2.5rem; }
+    .big-tag {
+      padding:0.6rem 1.3rem; border-radius:999px;
+      font-size:0.85rem; font-weight:600;
+      background:var(--surface); border:1px solid var(--border);
+      color:var(--text-secondary); transition:all var(--transition);
+      cursor:default;
+    }
+    .big-tag:hover { background:var(--brand-primary); color:#fff; border-color:var(--brand-primary); transform:translateY(-2px); box-shadow:0 4px 14px rgba(10,124,110,0.25); }
+
+    @media(max-width:900px){ .skills-layout { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">M.<span>Irfan</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="about.html"      class="nav-link">About</a></li>
+          <li><a href="skills.html"     class="nav-link active" aria-current="page">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html"   class="nav-link">Projects</a></li>
+          <li><a href="contact.html"    class="nav-cta btn btn-primary btn-sm">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html" class="nav-cta btn btn-primary">Hire Me</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-label="Page header">
+      <div class="page-hero-inner">
+        <div class="eyebrow anim-fade-up">Technical Expertise</div>
+        <h1 class="anim-fade-up d1">Skills & Technologies</h1>
+        <p class="anim-fade-up d2">A comprehensive toolkit built through academic rigor, real-world internships, and independent projects — from ML pipelines to database architecture.</p>
+      </div>
+    </section>
+
+    <!-- SKILL CATEGORIES -->
+    <section class="section" aria-labelledby="skills-main-title">
+      <div class="container">
+        <div class="eyebrow reveal">By Domain</div>
+        <h2 id="skills-main-title" class="reveal reveal-delay-1">Skill Breakdown</h2>
+        <div class="skills-layout">
+
+          <!-- AI / ML -->
+          <div class="skill-cat-card scc-ai reveal">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">🤖</div>
+              <div>
+                <div class="cat-title">AI & Machine Learning</div>
+                <div class="cat-count">8 core technologies</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Machine Learning</span><span class="skill-pct">90%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="90"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Deep Learning</span><span class="skill-pct">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">NLP</span><span class="skill-pct">82%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="82"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">TensorFlow</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Scikit-learn</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Software Dev -->
+          <div class="skill-cat-card scc-dev reveal reveal-delay-1">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">💻</div>
+              <div>
+                <div class="cat-title">Software Development</div>
+                <div class="cat-count">7 core technologies</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Python</span><span class="skill-pct">92%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="92"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">FastAPI</span><span class="skill-pct">83%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="83"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Docker</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Git & GitHub</span><span class="skill-pct">85%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="85"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">REST APIs</span><span class="skill-pct">82%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="82"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-cat-card scc-db reveal">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">🗄️</div>
+              <div>
+                <div class="cat-title">Databases</div>
+                <div class="cat-count">SQL & NoSQL</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">SQL (Core)</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">PostgreSQL</span><span class="skill-pct">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">MongoDB</span><span class="skill-pct">77%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="77"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Database Design</span><span class="skill-pct">78%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="78"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Query Optimization</span><span class="skill-pct">72%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="72"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytics & Tools -->
+          <div class="skill-cat-card scc-tools reveal reveal-delay-1">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">📊</div>
+              <div>
+                <div class="cat-title">Analytics & Visualization</div>
+                <div class="cat-count">6 core technologies</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Pandas & NumPy</span><span class="skill-pct">92%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="92"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Power BI</span><span class="skill-pct">82%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="82"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Matplotlib / Seaborn</span><span class="skill-pct">87%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="87"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Tableau</span><span class="skill-pct">72%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="72"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Statistics & EDA</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Networking -->
+          <div class="skill-cat-card scc-net reveal">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">🌐</div>
+              <div>
+                <div class="cat-title">Networking & IT</div>
+                <div class="cat-count">Hands-on experience</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Network Configuration</span><span class="skill-pct">75%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="75"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">IT Support</span><span class="skill-pct">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Troubleshooting</span><span class="skill-pct">82%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="82"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Security Practices</span><span class="skill-pct">70%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="70"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="skill-cat-card scc-soft reveal reveal-delay-1">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">🧠</div>
+              <div>
+                <div class="cat-title">Professional Skills</div>
+                <div class="cat-count">Leadership & communication</div>
+              </div>
+            </div>
+            <div class="skill-bars">
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Problem Solving</span><span class="skill-pct">93%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="93"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Team Collaboration</span><span class="skill-pct">88%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="88"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Communication</span><span class="skill-pct">85%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="85"></div></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-top"><span class="skill-name">Agile / Adaptive Thinking</span><span class="skill-pct">80%</span></div>
+                <div class="skill-track"><div class="skill-fill" data-pct="80"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL SKILLS CLOUD -->
+    <section class="all-skills-section" aria-labelledby="all-skills-title">
+      <div class="container">
+        <div class="eyebrow reveal">Complete Arsenal</div>
+        <h2 id="all-skills-title" class="reveal reveal-delay-1">All Technologies</h2>
+        <div class="big-tag-cloud reveal reveal-delay-2">
+          <span class="big-tag">Python</span>
+          <span class="big-tag">Machine Learning</span>
+          <span class="big-tag">Deep Learning</span>
+          <span class="big-tag">NLP</span>
+          <span class="big-tag">TensorFlow</span>
+          <span class="big-tag">Scikit-learn</span>
+          <span class="big-tag">FastAPI</span>
+          <span class="big-tag">Docker</span>
+          <span class="big-tag">Git</span>
+          <span class="big-tag">REST APIs</span>
+          <span class="big-tag">SQL</span>
+          <span class="big-tag">PostgreSQL</span>
+          <span class="big-tag">MongoDB</span>
+          <span class="big-tag">NoSQL</span>
+          <span class="big-tag">Database Design</span>
+          <span class="big-tag">Pandas</span>
+          <span class="big-tag">NumPy</span>
+          <span class="big-tag">Matplotlib</span>
+          <span class="big-tag">Seaborn</span>
+          <span class="big-tag">Power BI</span>
+          <span class="big-tag">Tableau</span>
+          <span class="big-tag">Excel</span>
+          <span class="big-tag">Statistics</span>
+          <span class="big-tag">EDA</span>
+          <span class="big-tag">GARCH Models</span>
+          <span class="big-tag">Random Forest</span>
+          <span class="big-tag">SMOTE</span>
+          <span class="big-tag">Alpha Vantage API</span>
+          <span class="big-tag">Networking</span>
+          <span class="big-tag">HTML / CSS</span>
+          <span class="big-tag">JavaScript</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">M.<span>Irfan</span></div>
+          <p class="footer-desc">Data Scientist & AI Engineer based in Faisalabad, Pakistan.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="projects.html" class="footer-link">Projects</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:muhammadirf655@gmail.com" class="footer-link">muhammadirf655@gmail.com</a></li>
+            <li><a href="tel:+923266890886" class="footer-link">+92 326 6890886</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Irfan. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://github.com"   class="social-btn" aria-label="GitHub"   target="_blank" rel="noopener">gh</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

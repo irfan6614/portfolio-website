@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Muhammad Irfan | Data Scientist & AI Engineer</title>
+  <meta name="description" content="Learn about Muhammad Irfan — a top-ranked CS student from UAF Faisalabad specializing in Data Science, Machine Learning, NLP, and AI engineering." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muhammadirfan.dev/about.html" />
+  <meta property="og:title" content="About Muhammad Irfan — Data Scientist" />
+  <meta property="og:description" content="Top 5% CS graduate. ML, NLP, Python, PostgreSQL, MongoDB expert." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-intro { display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:center; }
+    .about-photo {
+      border-radius: var(--radius-xl); overflow:hidden;
+      box-shadow: var(--shadow-xl);
+      border: 3px solid var(--border);
+      aspect-ratio: 3/4;
+    }
+    .about-photo img { width:100%; height:100%; object-fit:cover; object-position:top; }
+    .about-body h2 { margin-bottom:1.2rem; }
+    .about-body p  { margin-bottom:1rem; }
+    .about-body .btn { margin-top:1rem; }
+
+    /* Values */
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:3rem; }
+    .value-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; text-align:center; transition:all var(--transition); }
+    .value-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:var(--border-strong); }
+    .value-icon { font-size:2.2rem; margin-bottom:0.8rem; }
+    .value-card h3 { font-size:1rem; margin-bottom:0.5rem; }
+    .value-card p  { font-size:0.83rem; }
+
+    /* Education */
+    .edu-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem;
+      display:flex; gap:1.5rem; align-items:flex-start;
+      transition:all var(--transition); position:relative; overflow:hidden;
+    }
+    .edu-card::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+      background:linear-gradient(180deg, var(--brand-primary), var(--brand-secondary));
+    }
+    .edu-card:hover { transform:translateX(4px); box-shadow:var(--shadow-md); }
+    .edu-icon { font-size:2.2rem; flex-shrink:0; }
+    .edu-degree { font-family:var(--font-display); font-size:1.1rem; font-weight:700; margin-bottom:0.2rem; }
+    .edu-school { color:var(--brand-primary); font-size:0.9rem; font-weight:600; margin-bottom:0.25rem; }
+    .edu-period { color:var(--text-muted); font-size:0.8rem; margin-bottom:0.6rem; }
+
+    /* Certs */
+    .cert-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+    .cert-card {
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem;
+      display:flex; align-items:center; gap:1rem; transition:all var(--transition);
+    }
+    .cert-card:hover { border-color:var(--brand-secondary); transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+    .cert-icon { font-size:2rem; flex-shrink:0; }
+    .cert-name { font-weight:700; font-size:0.92rem; margin-bottom:0.2rem; }
+    .cert-issuer { font-size:0.78rem; color:var(--text-muted); }
+
+    /* Interests */
+    .interests-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+    .interest-item {
+      background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.2rem;
+      text-align:center; font-size:0.82rem; font-weight:600; color:var(--text-secondary);
+      transition:all var(--transition);
+    }
+    .interest-item:hover { background:var(--brand-primary); color:#fff; border-color:var(--brand-primary); }
+    .interest-icon { font-size:1.5rem; display:block; margin-bottom:0.4rem; }
+
+    @media(max-width:900px){
+      .about-intro { grid-template-columns:1fr; }
+      .values-grid { grid-template-columns:1fr 1fr; }
+      .interests-grid { grid-template-columns:repeat(2,1fr); }
+      .cert-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:600px){
+      .values-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">M.<span>Irfan</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="about.html"      class="nav-link active" aria-current="page">About</a></li>
+          <li><a href="skills.html"     class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html"   class="nav-link">Projects</a></li>
+          <li><a href="contact.html"    class="nav-cta btn btn-primary btn-sm">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html"      class="nav-link">Home</a>
+      <a href="about.html"      class="nav-link">About</a>
+      <a href="skills.html"     class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="projects.html"   class="nav-link">Projects</a>
+      <a href="contact.html"    class="nav-cta btn btn-primary">Hire Me</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-label="Page header">
+      <div class="page-hero-inner">
+        <div class="eyebrow anim-fade-up">About Me</div>
+        <h1 class="anim-fade-up d1">The Person Behind <br>the Data</h1>
+        <p class="anim-fade-up d2">A passionate Data Scientist & AI Engineer committed to building systems that make a real difference — from financial forecasting to fraud prevention.</p>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="about-intro">
+          <div class="about-photo reveal">
+            <img src="images/profile.jpg" alt="Muhammad Irfan — Data Scientist from Faisalabad" loading="lazy" />
+          </div>
+          <div class="about-body reveal reveal-delay-2">
+            <div class="eyebrow">My Story</div>
+            <h2 id="intro-title">From Curiosity to <span class="text-accent">Craft</span></h2>
+            <p>I'm Muhammad Irfan — a final-year Computer Science student at the University of Agriculture Faisalabad, where I've maintained a rank in the top 5% of my batch. My journey into data science began with a simple question: <em>why do patterns exist in data, and how can machines learn to see them?</em></p>
+            <p>That curiosity led me to build fraud detection systems, stock volatility models, and NLP pipelines — not as exercises, but as functional, deployable software. My internships at SkillifyZone, MAHEEN Textile, and Punjab Police gave me hands-on experience across data analytics, IT infrastructure, and enterprise networking.</p>
+            <p>I believe great technology is invisible — it just works. Whether that means a well-tuned Random Forest, a clean FastAPI endpoint, or a Power BI dashboard a business actually uses, I focus on outcomes that matter.</p>
+            <a href="contact.html" class="btn btn-primary">Let's Connect →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- VALUES -->
+    <section class="section-sm" aria-labelledby="values-title">
+      <div class="container">
+        <div class="eyebrow reveal">What Drives Me</div>
+        <h2 id="values-title" class="reveal reveal-delay-1">Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <div class="value-icon">🎯</div>
+            <h3>Precision</h3>
+            <p>I obsess over correctness — from statistical diagnostics like AIC/BIC to production-ready APIs that don't break under real load.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">🌱</div>
+            <h3>Growth</h3>
+            <p>The field evolves daily. I read papers, build projects, and take certifications to stay at the edge of what's possible in AI and ML.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon">🤝</div>
+            <h3>Impact</h3>
+            <p>Code is only valuable when it solves real problems. Every project I build starts with a use case, not a technique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- EDUCATION -->
+    <section class="section-sm" aria-labelledby="education-title">
+      <div class="container">
+        <div class="eyebrow reveal">Academic Background</div>
+        <h2 id="education-title" class="reveal reveal-delay-1">Education</h2>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:2.5rem">
+          <div class="edu-card reveal">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <div class="edu-degree">Bachelor of Computer Science in Information Technology</div>
+              <div class="edu-school">University of Agriculture Faisalabad (UAF)</div>
+              <div class="edu-period">Sep 2022 – June 2026 · Faisalabad, Pakistan</div>
+              <span class="tag tag-gold">⭐ Top 5% of Batch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section-sm" aria-labelledby="certs-title">
+      <div class="container">
+        <div class="eyebrow reveal">Credentials</div>
+        <h2 id="certs-title" class="reveal reveal-delay-1">Certifications</h2>
+        <div class="cert-grid" style="margin-top:2.5rem">
+          <div class="cert-card reveal">
+            <div class="cert-icon">🌍</div>
+            <div>
+              <div class="cert-name">Applied Data Science Lab</div>
+              <div class="cert-issuer">WorldQuant University · December 2025</div>
+            </div>
+          </div>
+          <div class="cert-card reveal reveal-delay-1">
+            <div class="cert-icon">📊</div>
+            <div>
+              <div class="cert-name">Power BI Certification</div>
+              <div class="cert-issuer">Microsoft · 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <!-- INTERESTS -->
+    <section class="section-sm" aria-labelledby="interests-title">
+      <div class="container">
+        <div class="eyebrow reveal">Beyond the Code</div>
+        <h2 id="interests-title" class="reveal reveal-delay-1">Interests & Focus Areas</h2>
+        <div class="interests-grid">
+          <div class="interest-item reveal">
+            <span class="interest-icon">🤖</span>AI Product Development
+          </div>
+          <div class="interest-item reveal reveal-delay-1">
+            <span class="interest-icon">📊</span>Data Analytics
+          </div>
+          <div class="interest-item reveal reveal-delay-2">
+            <span class="interest-icon">🌐</span>Networking & Infra
+          </div>
+          <div class="interest-item reveal reveal-delay-3">
+            <span class="interest-icon">📈</span>Financial Modeling
+          </div>
+          <div class="interest-item reveal">
+            <span class="interest-icon">🧠</span>NLP & Language AI
+          </div>
+          <div class="interest-item reveal reveal-delay-1">
+            <span class="interest-icon">🔐</span>Fraud & Security
+          </div>
+          <div class="interest-item reveal reveal-delay-2">
+            <span class="interest-icon">🗄️</span>Database Architecture
+          </div>
+          <div class="interest-item reveal reveal-delay-3">
+            <span class="interest-icon">🚀</span>MLOps & Deployment
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">M.<span>Irfan</span></div>
+          <p class="footer-desc">Data Scientist & AI Engineer based in Faisalabad, Pakistan.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html"      class="footer-link">Home</a></li>
+            <li><a href="about.html"      class="footer-link">About</a></li>
+            <li><a href="skills.html"     class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="projects.html"   class="footer-link">Projects</a></li>
+            <li><a href="contact.html"    class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:muhammadirf655@gmail.com" class="footer-link">muhammadirf655@gmail.com</a></li>
+            <li><a href="tel:+923266890886" class="footer-link">+92 326 6890886</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Irfan. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://github.com"   class="social-btn" aria-label="GitHub"   target="_blank" rel="noopener">gh</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="back-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

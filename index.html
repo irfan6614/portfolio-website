@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- ═══ SEO & META ═══════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Muhammad Irfan — Data Scientist & AI Engineer | Faisalabad, Pakistan</title>
+  <meta name="description" content="Muhammad Irfan is a Data Scientist and AI Engineer from Faisalabad, Pakistan. Expert in Machine Learning, NLP, Python, SQL, MongoDB, PostgreSQL, and FastAPI. Top 5% CS graduate." />
+  <meta name="keywords" content="Muhammad Irfan, Data Scientist, AI Engineer, Machine Learning, Python, NLP, PostgreSQL, MongoDB, FastAPI, Pakistan, Faisalabad" />
+  <meta name="author" content="Muhammad Irfan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://muhammadirfan.dev/index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://muhammadirfan.dev/" />
+  <meta property="og:title" content="Muhammad Irfan — Data Scientist & AI Engineer" />
+  <meta property="og:description" content="Turning raw data into intelligent decisions. Expert in ML, NLP, Python, and full-stack data engineering." />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Irfan — Data Scientist & AI Engineer" />
+  <meta name="twitter:description" content="Machine Learning • NLP • Python • SQL • MongoDB • FastAPI" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Structured Data (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Irfan",
+    "jobTitle": "Data Scientist & AI Engineer",
+    "url": "https://muhammadirfan.dev",
+    "email": "muhammadirf655@gmail.com",
+    "telephone": "+923266890886",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Faisalabad",
+      "addressCountry": "PK"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Agriculture Faisalabad"
+    },
+    "knowsAbout": ["Machine Learning","Deep Learning","NLP","Python","FastAPI","PostgreSQL","MongoDB","Data Science","TensorFlow"],
+    "sameAs": ["https://linkedin.com","https://github.com"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── HOME-SPECIFIC STYLES ─────────────────────────────── */
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: calc(var(--nav-h) + 3rem) 0 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 65% 40%, rgba(10,124,110,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 70%, rgba(232,160,32,0.06) 0%, transparent 60%),
+        var(--bg);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1.05fr;
+      align-items: center; gap: 5rem;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(10,124,110,0.08);
+      border: 1px solid rgba(10,124,110,0.2);
+      padding: 0.3rem 0.9rem; border-radius: 999px;
+      font-size: 0.75rem; font-weight: 700;
+      color: var(--brand-primary);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .hero-tag-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.2);
+      animation: pulse-green 2s ease infinite;
+    }
+    @keyframes pulse-green {
+      0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,0.2)}
+      50%{box-shadow:0 0 0 6px rgba(34,197,94,0.08)}
+    }
+    .hero h1 { margin-bottom: 1.4rem; }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--brand-primary);
+      position: relative;
+    }
+    .hero h1 em::after {
+      content:'';
+      position:absolute; bottom:-4px; left:0; right:0; height:4px;
+      background: linear-gradient(90deg, var(--brand-secondary), transparent);
+      border-radius: 2px;
+    }
+    .hero-desc {
+      font-size: 1.08rem; max-width: 500px;
+      margin-bottom: 2.2rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .hero-meta {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; color: var(--text-muted);
+    }
+    .hero-meta-item svg { flex-shrink: 0; }
+
+    /* PROFILE VISUAL */
+    .hero-visual { display: flex; justify-content: flex-end; align-items: center; }
+    .profile-wrap {
+      position: relative; width: 340px;
+    }
+    .profile-ring {
+      position: absolute; inset: -18px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(10,124,110,0.25);
+      animation: spin-slow 25s linear infinite;
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .profile-ring-2 {
+      position: absolute; inset: -36px;
+      border-radius: 50%;
+      border: 1px dashed rgba(232,160,32,0.18);
+      animation: spin-slow 40s linear infinite reverse;
+    }
+    .profile-img-wrap {
+      width: 340px; height: 380px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 3px solid rgba(10,124,110,0.15);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+    .profile-img-wrap img {
+      width:100%; height:100%; object-fit:cover; object-position: top center;
+      filter: saturate(1.05);
+    }
+    .profile-img-wrap::after {
+      content:'';
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 60%, rgba(13,26,22,0.45) 100%);
+    }
+    .profile-badge {
+      position: absolute; z-index: 2;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 0.75rem 1.1rem;
+      box-shadow: var(--shadow-md);
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    .pb-icon { font-size: 1.4rem; }
+    .pb-top    { top: 1.5rem; left: -3.5rem; animation: float 3.5s ease-in-out infinite; }
+    .pb-bottom { bottom: 3rem; right: -3rem; animation: float 4s ease-in-out infinite 0.8s; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .pb-label { font-size: 0.68rem; color: var(--text-muted); font-weight: 400; }
+
+    /* SOCIAL PROOF BAR */
+    .proof-bar {
+      background: var(--brand-deep);
+      padding: 1.3rem 0;
+    }
+    .proof-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .proof-item {
+      text-align: center; color: rgba(255,255,255,0.55);
+      font-size: 0.8rem;
+    }
+    .proof-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.7rem; font-weight: 800;
+      color: var(--brand-secondary);
+      line-height: 1;
+    }
+
+    /* ABOUT STRIP */
+    .about-strip { padding: 5rem 0; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-text h2 { margin-bottom: 1.2rem; }
+    .about-text p { margin-bottom: 1.2rem; }
+    .about-highlights { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 2rem; }
+    .highlight-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .highlight-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(10,124,110,0.08);
+      border: 1px solid rgba(10,124,110,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .highlight-text strong { display:block; font-size: 0.9rem; margin-bottom:0.15rem; color: var(--text-primary); }
+    .highlight-text span { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* SKILLS TEASER */
+    .skills-teaser { padding: 5rem 0; background: var(--surface-2); }
+    .skills-tag-cloud {
+      display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 2.5rem;
+    }
+    .skill-pill {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px; font-size: 0.83rem; font-weight: 600;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      cursor: default;
+    }
+    .skill-pill:hover {
+      background: var(--brand-primary); color: #fff;
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(10,124,110,0.25);
+    }
+    .skill-pill.gold:hover {
+      background: var(--brand-secondary);
+      border-color: var(--brand-secondary);
+      box-shadow: 0 4px 14px rgba(232,160,32,0.25);
+    }
+
+    /* FEATURED PROJECTS */
+    .featured-projects { padding: 5rem 0; }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem; position: relative; overflow: hidden;
+      transition: all var(--transition);
+    }
+    .proj-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .proj-card:nth-child(1)::before { background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent)); }
+    .proj-card:nth-child(2)::before { background: linear-gradient(90deg, var(--brand-secondary), #f4a420); }
+    .proj-card:nth-child(3)::before { background: linear-gradient(90deg, var(--brand-accent), var(--brand-primary)); }
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-strong);
+    }
+    .proj-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem; font-weight: 800;
+      color: rgba(10,124,110,0.06);
+      position:absolute; top:1rem; right:1.5rem;
+      line-height:1;
+    }
+    .proj-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem; font-weight: 700;
+      margin-bottom: 0.7rem; color: var(--text-primary);
+    }
+    .proj-desc {
+      font-size: 0.87rem; color: var(--text-muted);
+      line-height: 1.7; margin-bottom: 1.3rem;
+    }
+    .proj-tags { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom: 1.3rem; }
+    .proj-link {
+      font-size: 0.83rem; font-weight: 700; color: var(--brand-primary);
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      transition: gap var(--transition);
+    }
+    .proj-link:hover { gap: 0.6rem; color: var(--brand-accent); }
+
+    /* CTA BAND */
+    .cta-band {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--brand-deep) 0%, #0d2d25 100%);
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .cta-band::before {
+      content:'';
+      position:absolute; inset:0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(29,200,176,0.1) 0%, transparent 70%);
+    }
+    .cta-band h2 { color: #fff; margin-bottom: 1rem; position: relative; z-index:1; }
+    .cta-band p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; position: relative; z-index:1; font-size:1.05rem; }
+    .cta-band .btn { position: relative; z-index:1; }
+
+    /* RESPONSIVE HOME */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-visual { justify-content: center; order: -1; }
+      .profile-wrap { width: 260px; }
+      .profile-img-wrap { width: 260px; height: 300px; }
+      .pb-top { left: -1rem; }
+      .pb-bottom { right: -1rem; }
+      .hero-desc { max-width: 100%; }
+      .hero-btns, .hero-meta { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+  <!-- Canvas BG -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Muhammad Irfan — Home">M.<span>Irfan</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"      class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="about.html"      class="nav-link">About</a></li>
+          <li><a href="skills.html"     class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="projects.html"   class="nav-link">Projects</a></li>
+          <li><a href="contact.html"    class="nav-cta btn btn-primary btn-sm">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html"      class="nav-link">Home</a>
+      <a href="about.html"      class="nav-link">About</a>
+      <a href="skills.html"     class="nav-link">Skills</a>
+      <a href="experience.html" class="nav-link">Experience</a>
+      <a href="projects.html"   class="nav-link">Projects</a>
+      <a href="contact.html"    class="nav-cta btn btn-primary">Hire Me</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main id="main">
+
+    <!-- ── HERO ──────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-tag anim-fade-up">
+              <div class="hero-tag-dot" aria-hidden="true"></div>
+              Available for Opportunities
+            </div>
+            <h1 class="anim-fade-up d1">
+              Muhammad<br><em>Irfan</em>
+            </h1>
+            <p class="hero-desc anim-fade-up d2">
+              Data Scientist · AI Engineer · Software Developer.<br>
+              I build intelligent systems that turn complex data into clear, 
+              actionable insights — and real-world products.
+            </p>
+            <div class="hero-btns anim-fade-up d3">
+              <a href="projects.html" class="btn btn-primary btn-lg">View My Projects</a>
+              <a href="contact.html"  class="btn btn-secondary btn-lg">Let's Talk</a>
+            </div>
+            <div class="hero-meta anim-fade-up d4">
+              <div class="hero-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Faisalabad, Pakistan
+              </div>
+              <div class="hero-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Graduating June 2026
+              </div>
+              <div class="hero-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Top 5% of Batch
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual anim-scale-in d2" aria-hidden="true">
+            <div class="profile-wrap">
+              <div class="profile-ring"></div>
+              <div class="profile-ring-2"></div>
+              <div class="profile-img-wrap">
+                <img src="images/profile.jpg" alt="Muhammad Irfan — Data Scientist" loading="eager" />
+              </div>
+              <div class="profile-badge pb-top">
+                <span class="pb-icon">🎓</span>
+                <div>
+                  <strong>UAF, CS</strong>
+                  <div class="pb-label">Top 5% Graduate</div>
+                </div>
+              </div>
+              <div class="profile-badge pb-bottom">
+                <span class="pb-icon">🤖</span>
+                <div>
+                  <strong>AI & ML Expert</strong>
+                  <div class="pb-label">3 Internships</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROOF BAR ─────────────────────────────────────────── -->
+    <aside class="proof-bar" aria-label="Key achievements">
+      <div class="proof-inner">
+        <div class="proof-item">
+          <span class="proof-num" data-count="3" data-suffix="+">3+</span>
+          Real-World Projects
+        </div>
+        <div class="proof-item">
+          <span class="proof-num" data-count="3">3</span>
+          Internships
+        </div>
+        <div class="proof-item">
+          <span class="proof-num" data-count="2">2</span>
+          Certifications
+        </div>
+        <div class="proof-item">
+          <span class="proof-num" data-count="5" data-suffix="%">5%</span>
+          Top Batch Rank
+        </div>
+        <div class="proof-item">
+          <span class="proof-num" data-count="15" data-suffix="+">15+</span>
+          Technologies
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── ABOUT STRIP ────────────────────────────────────────── -->
+    <section class="about-strip" aria-labelledby="home-about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <div class="eyebrow">Who I Am</div>
+            <h2 id="home-about-title">A Data Scientist Who <span class="highlight">Ships</span> Real Solutions</h2>
+            <p>I'm Muhammad Irfan — a final-year Computer Science student at the University of Agriculture Faisalabad, ranked in the top 5% of my batch. I specialize in transforming raw, messy data into machine learning systems that actually work in production.</p>
+            <p>My work spans financial forecasting APIs, NLP sentiment systems, fraud detection, and hands-on networking at government and industrial scale.</p>
+            <a href="about.html" class="btn btn-primary" style="margin-top:1.5rem">Read My Story →</a>
+          </div>
+          <div class="about-highlights reveal reveal-delay-2">
+            <div class="highlight-item">
+              <div class="highlight-icon">🎓</div>
+              <div class="highlight-text">
+                <strong>University of Agriculture Faisalabad</strong>
+                <span>B.Sc. Computer Science in IT · Sep 2022 – Jun 2026</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🌍</div>
+              <div class="highlight-text">
+                <strong>WorldQuant University</strong>
+                <span>Applied Data Science Lab Certification · Dec 2025</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">📊</div>
+              <div class="highlight-text">
+                <strong>Microsoft Power BI</strong>
+                <span>Business Intelligence Certification · 2025</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-icon">🏭</div>
+              <div class="highlight-text">
+                <strong>Industry Experience</strong>
+                <span>SkillifyZone · MAHEEN Textile · Punjab Police</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS TEASER ─────────────────────────────────────── -->
+    <section class="skills-teaser" aria-labelledby="skills-teaser-title">
+      <div class="container">
+        <div class="eyebrow reveal">Technical Arsenal</div>
+        <h2 id="skills-teaser-title" class="reveal reveal-delay-1">Tools I Work With Every Day</h2>
+        <div class="skills-tag-cloud reveal reveal-delay-2">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Machine Learning</span>
+          <span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill gold">Deep Learning</span>
+          <span class="skill-pill">NLP</span>
+          <span class="skill-pill gold">FastAPI</span>
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">MongoDB</span>
+          <span class="skill-pill gold">SQL</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill gold">NumPy</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill gold">Scikit-learn</span>
+          <span class="skill-pill">GARCH Models</span>
+          <span class="skill-pill">Networking</span>
+          <span class="skill-pill gold">REST APIs</span>
+          <span class="skill-pill">Git & GitHub</span>
+          <span class="skill-pill">Excel</span>
+          <span class="skill-pill gold">Seaborn</span>
+          <span class="skill-pill">Matplotlib</span>
+        </div>
+        <div style="margin-top:2rem" class="reveal reveal-delay-3">
+          <a href="skills.html" class="btn btn-secondary">Explore All Skills →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED PROJECTS ──────────────────────────────────── -->
+    <section class="featured-projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="eyebrow reveal">Selected Work</div>
+        <h2 id="projects-title" class="reveal reveal-delay-1">Featured Projects</h2>
+        <div class="projects-grid">
+
+          <article class="proj-card reveal" aria-labelledby="proj1-title">
+            <div class="proj-num" aria-hidden="true">01</div>
+            <div class="proj-icon" aria-hidden="true">📈</div>
+            <h3 id="proj1-title" class="proj-title">Stock Volatility Forecasting API</h3>
+            <p class="proj-desc">Production-grade financial API using GARCH(1,1) with FastAPI, Alpha Vantage data, and Docker. AIC/BIC/ACF diagnostics included.</p>
+            <div class="proj-tags" aria-label="Technologies used">
+              <span class="tag">FastAPI</span>
+              <span class="tag">GARCH</span>
+              <span class="tag">Docker</span>
+              <span class="tag">SQL</span>
+            </div>
+            <a href="projects.html" class="proj-link">View Details →</a>
+          </article>
+
+          <article class="proj-card reveal reveal-delay-1" aria-labelledby="proj2-title">
+            <div class="proj-num" aria-hidden="true">02</div>
+            <div class="proj-icon" aria-hidden="true">🎬</div>
+            <h3 id="proj2-title" class="proj-title">Text Sentiment Analysis</h3>
+            <p class="proj-desc">NLP-powered sentiment classifier trained on the IMDB Movie Review dataset. Achieves high accuracy using classical ML pipelines.</p>
+            <div class="proj-tags" aria-label="Technologies used">
+              <span class="tag">NLP</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">Python</span>
+            </div>
+            <a href="projects.html" class="proj-link">View Details →</a>
+          </article>
+
+          <article class="proj-card reveal reveal-delay-2" aria-labelledby="proj3-title">
+            <div class="proj-num" aria-hidden="true">03</div>
+            <div class="proj-icon" aria-hidden="true">🛡️</div>
+            <h3 id="proj3-title" class="proj-title">Credit Card Fraud Detection</h3>
+            <p class="proj-desc">ML fraud detection using Random Forest with SMOTE to balance severely imbalanced transaction datasets. High precision on rare cases.</p>
+            <div class="proj-tags" aria-label="Technologies used">
+              <span class="tag">Random Forest</span>
+              <span class="tag">SMOTE</span>
+              <span class="tag">Python</span>
+            </div>
+            <a href="projects.html" class="proj-link">View Details →</a>
+          </article>
+
+        </div>
+        <div style="text-align:center;margin-top:2.5rem" class="reveal">
+          <a href="projects.html" class="btn btn-primary">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BAND ───────────────────────────────────────────── -->
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Ready to Work Together?</h2>
+        <p>Open to internships, full-time roles, and freelance collaborations in Data Science & AI.</p>
+        <a href="contact.html" class="btn btn-gold btn-lg">Get In Touch →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">M.<span>Irfan</span></div>
+          <p class="footer-desc">Data Scientist & AI Engineer based in Faisalabad, Pakistan. Building intelligent systems with Python, ML, and modern databases.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html"      class="footer-link">Home</a></li>
+            <li><a href="about.html"      class="footer-link">About</a></li>
+            <li><a href="skills.html"     class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="projects.html"   class="footer-link">Projects</a></li>
+            <li><a href="contact.html"    class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links" role="list">
+            <li><a href="mailto:muhammadirf655@gmail.com" class="footer-link">muhammadirf655@gmail.com</a></li>
+            <li><a href="tel:+923266890886"               class="footer-link">+92 326 6890886</a></li>
+            <li><span class="footer-link">Faisalabad, Pakistan</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Muhammad Irfan. Built with purpose &amp; precision.</p>
+        <div class="footer-social" aria-label="Social links">
+          <a href="https://linkedin.com" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+          <a href="https://github.com"   class="social-btn" aria-label="GitHub"   target="_blank" rel="noopener">gh</a>
+          <a href="mailto:muhammadirf655@gmail.com" class="social-btn" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" aria-label="Back to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
